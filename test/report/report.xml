@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <testsuites tests="9" disabled="0" errors="0" failures="0" time="0.006711">
+      <testsuite name="Repository Suite" package="/Users/kover/Developer/Individual/my-auth-service/internal/repository" tests="9" disabled="0" skipped="0" errors="0" failures="0" time="0.006711" timestamp="2023-09-08T02:19:44">
+          <properties>
+              <property name="SuiteSucceeded" value="true"></property>
+              <property name="SuiteHasProgrammaticFocus" value="false"></property>
+              <property name="SpecialSuiteFailureReason" value=""></property>
+              <property name="SuiteLabels" value="[]"></property>
+              <property name="RandomSeed" value="1694110772"></property>
+              <property name="RandomizeAllSpecs" value="true"></property>
+              <property name="LabelFilter" value=""></property>
+              <property name="FocusStrings" value=""></property>
+              <property name="SkipStrings" value=""></property>
+              <property name="FocusFiles" value=""></property>
+              <property name="SkipFiles" value=""></property>
+              <property name="FailOnPending" value="false"></property>
+              <property name="FailFast" value="false"></property>
+              <property name="FlakeAttempts" value="0"></property>
+              <property name="DryRun" value="false"></property>
+              <property name="ParallelTotal" value="7"></property>
+              <property name="OutputInterceptorMode" value=""></property>
+          </properties>
+          <testcase name="[BeforeSuite]" classname="Repository Suite" status="passed" time="0.000968084">
+              <system-err>&gt; Enter [BeforeSuite] TOP-LEVEL - /Users/kover/Developer/Individual/my-auth-service/internal/repository/repository_suite_test.go:19 @ 09/08/23 02:19:44.864&#xA;&lt; Exit [BeforeSuite] TOP-LEVEL - /Users/kover/Developer/Individual/my-auth-service/internal/repository/repository_suite_test.go:19 @ 09/08/23 02:19:44.864 (0s)&#xA;</system-err>
+          </testcase>
+          <testcase name="[BeforeSuite]" classname="Repository Suite" status="passed" time="0.00117125">
+              <system-err>&gt; Enter [BeforeSuite] TOP-LEVEL - /Users/kover/Developer/Individual/my-auth-service/internal/repository/repository_suite_test.go:19 @ 09/08/23 02:19:44.864&#xA;&lt; Exit [BeforeSuite] TOP-LEVEL - /Users/kover/Developer/Individual/my-auth-service/internal/repository/repository_suite_test.go:19 @ 09/08/23 02:19:44.864 (0s)&#xA;</system-err>
+          </testcase>
+          <testcase name="[BeforeSuite]" classname="Repository Suite" status="passed" time="0.000296041">
+              <system-err>&gt; Enter [BeforeSuite] TOP-LEVEL - /Users/kover/Developer/Individual/my-auth-service/internal/repository/repository_suite_test.go:19 @ 09/08/23 02:19:44.864&#xA;&lt; Exit [BeforeSuite] TOP-LEVEL - /Users/kover/Developer/Individual/my-auth-service/internal/repository/repository_suite_test.go:19 @ 09/08/23 02:19:44.865 (0s)&#xA;</system-err>
+          </testcase>
+          <testcase name="[BeforeSuite]" classname="Repository Suite" status="passed" time="0.00122">
+              <system-err>&gt; Enter [BeforeSuite] TOP-LEVEL - /Users/kover/Developer/Individual/my-auth-service/internal/repository/repository_suite_test.go:19 @ 09/08/23 02:19:44.864&#xA;&lt; Exit [BeforeSuite] TOP-LEVEL - /Users/kover/Developer/Individual/my-auth-service/internal/repository/repository_suite_test.go:19 @ 09/08/23 02:19:44.864 (0s)&#xA;</system-err>
+          </testcase>
+          <testcase name="[BeforeSuite]" classname="Repository Suite" status="passed" time="0.001210083">
+              <system-err>&gt; Enter [BeforeSuite] TOP-LEVEL - /Users/kover/Developer/Individual/my-auth-service/internal/repository/repository_suite_test.go:19 @ 09/08/23 02:19:44.864&#xA;&lt; Exit [BeforeSuite] TOP-LEVEL - /Users/kover/Developer/Individual/my-auth-service/internal/repository/repository_suite_test.go:19 @ 09/08/23 02:19:44.864 (0s)&#xA;</system-err>
+          </testcase>
+          <testcase name="[BeforeSuite]" classname="Repository Suite" status="passed" time="0.000987042">
+              <system-err>&gt; Enter [BeforeSuite] TOP-LEVEL - /Users/kover/Developer/Individual/my-auth-service/internal/repository/repository_suite_test.go:19 @ 09/08/23 02:19:44.864&#xA;&lt; Exit [BeforeSuite] TOP-LEVEL - /Users/kover/Developer/Individual/my-auth-service/internal/repository/repository_suite_test.go:19 @ 09/08/23 02:19:44.864 (0s)&#xA;</system-err>
+          </testcase>
+          <testcase name="[It] Repository user test When create user Duplicated create should failed" classname="Repository Suite" status="passed" time="0.000273375">
+              <system-err>&gt; Enter [It] Duplicated create should failed - /Users/kover/Developer/Individual/my-auth-service/internal/repository/user_test.go:22 @ 09/08/23 02:19:44.865&#xA;&lt; Exit [It] Duplicated create should failed - /Users/kover/Developer/Individual/my-auth-service/internal/repository/user_test.go:22 @ 09/08/23 02:19:44.865 (0s)&#xA;</system-err>
+          </testcase>
+          <testcase name="[BeforeSuite]" classname="Repository Suite" status="passed" time="0.001071167">
+              <system-err>&gt; Enter [BeforeSuite] TOP-LEVEL - /Users/kover/Developer/Individual/my-auth-service/internal/repository/repository_suite_test.go:19 @ 09/08/23 02:19:44.864&#xA;&lt; Exit [BeforeSuite] TOP-LEVEL - /Users/kover/Developer/Individual/my-auth-service/internal/repository/repository_suite_test.go:19 @ 09/08/23 02:19:44.864 (0s)&#xA;</system-err>
+          </testcase>
+          <testcase name="[It] Repository user test When create user First time create should success" classname="Repository Suite" status="passed" time="0.000464084">
+              <system-err>&gt; Enter [It] First time create should success - /Users/kover/Developer/Individual/my-auth-service/internal/repository/user_test.go:14 @ 09/08/23 02:19:44.865&#xA;&lt; Exit [It] First time create should success - /Users/kover/Developer/Individual/my-auth-service/internal/repository/user_test.go:14 @ 09/08/23 02:19:44.866 (0s)&#xA;</system-err>
+          </testcase>
+      </testsuite>
+  </testsuites>
