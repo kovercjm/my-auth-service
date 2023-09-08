@@ -1,10 +1,7 @@
 package server
 
 import (
-	"context"
-	"fmt"
 	"net/http"
-	"time"
 
 	"github.com/gin-gonic/gin"
 	kFx "github.com/kovercjm/tool-go/dependency_injection/fx"
@@ -23,38 +20,9 @@ import (
 var CMD = func(cmd *cobra.Command, args []string) {
 	fx.New(fx.Module(
 		"my-auth-service",
-		fx.Provide(newLogger, repository.New, handler.New, newServer),
+		fx.Provide(NewLogger, repository.New, handler.New, New),
 		fx.WithLogger(kFx.FxLogger),
-		fx.Invoke(func(lifecycle fx.Lifecycle, server *Server) {
-			lifecycle.Append(fx.Hook{
-				OnStart: func(ctx context.Context) error {
-					address := fmt.Sprintf(":%d", server.config.Port)
-					server.HTTPServer = &http.Server{
-						Addr:    address,
-						Handler: server.GinEngine,
-					}
-					go func() {
-						server.logger.Info("gin gen server starting", "listening", address)
-						if err := server.HTTPServer.ListenAndServe(); err != nil {
-							server.logger.Error("gin gen server failed to serve", "error", err)
-						}
-					}()
-					return nil
-				},
-				OnStop: func(ctx context.Context) error {
-					server.logger.Info("gin gen server is shutting down")
-
-					ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
-					defer cancel()
-					if err := server.HTTPServer.Shutdown(ctx); err != nil {
-						server.logger.Error("gin gen server shutdown failed", "error", err)
-					}
-
-					server.logger.Info("gin gen server stopped gracefully")
-					return nil
-				},
-			})
-		}),
+		fx.Invoke(Lifecycle),
 	)).Run()
 }
 
@@ -62,20 +30,20 @@ type Server struct {
 	GinEngine  *gin.Engine
 	HTTPServer *http.Server
 
-	config *kServer.APIConfig
-	logger kLog.Logger
+	Config *kServer.APIConfig
+	Logger kLog.Logger
 }
 
-func newServer(logger kLog.Logger, handler *handler.Handler, repository dependency.Repository) (*Server, error) {
+func New(logger kLog.Logger, handler *handler.Handler, repository dependency.Repository) (*Server, error) {
 	s := &Server{}
-	s.config = &kServer.APIConfig{Port: 4201} // TODO hard-coded port
-	s.logger = logger
+	s.Config = &kServer.APIConfig{Port: 4201} // TODO hard-coded port
+	s.Logger = logger
 
 	s.GinEngine = gin.New()
 	s.GinEngine.Use(
-		kGin.APILogging(s.logger.NoCaller()),
+		kGin.APILogging(s.Logger.NoCaller()),
 		kGin.ErrorFormatter(),
-		kGin.PanicRecovery(s.logger.NoCaller()),
+		kGin.PanicRecovery(s.Logger.NoCaller()),
 		AuthenticateMiddleware(
 			repository,
 			handler.UsersPost,

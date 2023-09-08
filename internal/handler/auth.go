@@ -2,6 +2,7 @@ package handler
 
 import (
 	"errors"
+	"fmt"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -41,6 +42,7 @@ func (h Handler) UsersMeRolesGet(ctx *gin.Context) {
 		_ = ctx.Error(&kAPI.Error{})
 		return
 	}
+	fmt.Println(userRoles)
 	var roles []gen.RoleInfo
 	for _, role := range userRoles.Roles {
 		roles = append(roles, gen.RoleInfo{

@@ -5,7 +5,7 @@ import (
 	kLog "github.com/kovercjm/tool-go/logger"
 )
 
-func newLogger() (kLog.Logger, error) {
+func NewLogger() (kLog.Logger, error) {
 	return kInit.NewLogger(&kLog.Config{
 		Debug:       true,
 		Development: true,

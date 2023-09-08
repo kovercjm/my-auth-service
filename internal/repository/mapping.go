@@ -36,9 +36,10 @@ func userRoleToDomain(userID string, userRole []*model.UserRole) *domain.UserRol
 	if len(userRole) == 0 {
 		return nil
 	}
-	result := &domain.UserRole{User: &domain.User{ID: userID}}
+	// TODO get actual names
+	result := &domain.UserRole{User: &domain.User{ID: userID, Name: userID}}
 	for i := 0; i < len(userRole); i++ {
-		result.Roles = append(result.Roles, &domain.Role{ID: userRole[i].RoleID})
+		result.Roles = append(result.Roles, &domain.Role{ID: userRole[i].RoleID, Name: userRole[i].RoleID})
 	}
 	return result
 }
