@@ -68,7 +68,7 @@ type Server struct {
 
 func newServer(logger kLog.Logger, handler *handler.Handler, repository dependency.Repository) (*Server, error) {
 	s := &Server{}
-	s.config = &kServer.APIConfig{Port: 4201} // TODO hard code port
+	s.config = &kServer.APIConfig{Port: 4201} // TODO hard-coded port
 	s.logger = logger
 
 	s.GinEngine = gin.New()

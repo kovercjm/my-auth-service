@@ -17,7 +17,7 @@ type Claims struct {
 }
 
 func SignToken(repository dependency.Repository, claims *Claims) (string, error) {
-	claims.ExpiresAt = jwt.NewNumericDate(time.Now().Add(2 * time.Hour)) // TODO hard coded expiration time
+	claims.ExpiresAt = jwt.NewNumericDate(time.Now().Add(2 * time.Hour)) // TODO hard-coded 2-hour expiration time
 	tokenString, err := jwt.NewWithClaims(jwt.SigningMethodHS256, claims).SignedString([]byte(secretKey))
 	if err != nil {
 		return "", err
@@ -34,6 +34,9 @@ func ParseToken(repository dependency.Repository, tokenString string) (*Claims, 
 		return []byte(secretKey), nil
 	})
 	if err != nil {
+		if repoErr := repository.DeleteToken(tokenString); repoErr != nil {
+			return nil, repoErr
+		}
 		return nil, err
 	}
 	if claims, ok := token.Claims.(*Claims); ok && token.Valid {

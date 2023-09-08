@@ -74,18 +74,19 @@ func (h Handler) AuthLoginPost(ctx *gin.Context) {
 		return
 	}
 
-	valid, err := h.repository.CheckUserPassword(&domain.User{
+	user := &domain.User{
 		ID:       request.Name,
 		Name:     request.Name,
 		Password: request.Password,
-	})
+	}
+	valid, err := h.repository.CheckUserPassword(user)
 	if err != nil || !valid {
 		h.logger.Error("Auth user login failed", "error", err)
 		_ = ctx.Error(&kAPI.Error{HTTPStatus: http.StatusForbidden})
 		return
 	}
 
-	token, err := service.SignToken(h.repository, &service.Claims{UserID: request.Name}) // TODO use user id, not user name
+	token, err := service.SignToken(h.repository, &service.Claims{UserID: user.ID})
 	if err != nil {
 		h.logger.Error("Sign token failed", "error", err)
 		_ = ctx.Error(&kAPI.Error{})

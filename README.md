@@ -2,10 +2,9 @@
 
 A simple authentication and authorization service.
 
-- Written in Golang, based on [gin web framework](https://github.com/gin-gonic/gin).
-- Provided OpenAPI interfaces, following [swagger spec](https://swagger.io/specification/).
+Provided OpenAPI interfaces, following [OpenAPI Specification](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.1.md).
 
-## Components
+## Domain
 
 - User
   - ID: string, for now is the same as name
@@ -14,14 +13,17 @@ A simple authentication and authorization service.
 - Role
   - ID: string, for now is the same as name
   - Name: string, the unique identifier of a role
-- Auth
-  - Linked a User to several Roles
 
-All the operation on components are been logged for timestamp.
+## In memory database design
+
+- Structured data, stored in hash map with key as ID, for better searching performance
+  - User: {ID: string, Name: string, PasswordHash: string}
+  - Role: {ID: string, Name: string}
+  - UserRole: {UserID: string, RoleID: string}
+- Trashed structured data, stored in slice, keeping all deleted structured data, with deleted timestamp
+- Token Map, storing all signed tokens
 
 ## API
-
-API Specification: check [API Specification](api/openapi.json)
 
 - Create User: POST /users
 - Delete User: DELETE /users/{id}
@@ -35,3 +37,16 @@ API Specification: check [API Specification](api/openapi.json)
   - auth token in Header required
 - All Roles: GET /users/me/roles
   - auth token in Header required
+
+For detailed specification please check: [openapi.yaml](api/openapi.yaml)
+
+## Dependencies
+
+- Dependency Injection framework: [fx](https://github.com/uber-go/fx) 
+- Web framework: [gin](https://github.com/gin-gonic/gin)
+- Personal tool kit for Golang, like logger: [tool-go](https://github.com/kovercjm/tool-go) 
+- JSON Web Token: [jwt](https://github.com/golang-jwt/jwt)
+- Official error library: [errors](https://github.com/pkg/errors)
+- Testing framework: [ginkgo](https://github.com/onsi/ginkgo/v2) + [gomega](https://github.com/onsi/gomega)
+- Testing data generator: [gofakeit](https://github.com/brianvoe/gofakeit/v6)
+- CLI application helper: [cobra](https://github.com/spf13/cobra)

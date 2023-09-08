@@ -73,6 +73,8 @@ github.com/klauspost/cpuid/v2 v2.2.4 h1:acbojRNwl3o09bUq+yDCtZFc1aiwaAAxtcn8YkZX
 github.com/klauspost/cpuid/v2 v2.2.4/go.mod h1:RVVoqg1df56z8g3pUjL/3lE5UfnlrJX8tyFgg4nqhuY=
 github.com/kovercjm/tool-go v1.1.1-0.20230907174646-87656fcee372 h1:3Esk+IHUzyRnj+3amIXXwmevmSO0kpS12my8haIV9Bg=
 github.com/kovercjm/tool-go v1.1.1-0.20230907174646-87656fcee372/go.mod h1:1N2XdXshRbKgQhj8kLawAMUE4Wjs7F5jiT19TVOvZME=
+github.com/kovercjm/tool-go v1.1.1-0.20230908003615-0cf6e9741522 h1:nX5/YBAlbBJ8FCb1YNfR5zgcnvz6EEw3GgA/hyd6y/0=
+github.com/kovercjm/tool-go v1.1.1-0.20230908003615-0cf6e9741522/go.mod h1:1N2XdXshRbKgQhj8kLawAMUE4Wjs7F5jiT19TVOvZME=
 github.com/kr/pretty v0.3.1 h1:flRD4NNwYAUpkphVc1HcthR4KEIFJ65n8Mw5qdRn3LE=
 github.com/kr/pretty v0.3.1/go.mod h1:hoEshYVHaxMs3cyo3Yncou5ZscifuDolrwPKZanG3xk=
 github.com/kr/text v0.2.0 h1:5Nx0Ya0ZqY2ygV366QzturHI13Jq95ApcVaJBhpS+AY=

@@ -1,0 +1,332 @@
+openapi: 3.0.1
+info:
+  description: ""
+  title: My Auth Service
+  version: 1.0.0
+servers:
+- url: /
+tags:
+- name: User
+- name: Role
+- name: Auth
+paths:
+  /users/:
+    post:
+      deprecated: false
+      description: ""
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserInfo'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/_users__post_200_response'
+          description: OK
+      summary: Create User
+      tags:
+      - User
+      x-apifox-folder: User
+      x-apifox-status: released
+      x-run-in-apifox: https://apifox.com/web/project/3257993/apis/api-108725023-run
+  /users/{id}:
+    delete:
+      deprecated: false
+      description: ""
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "204":
+          content:
+            application/json:
+              schema:
+                properties: {}
+                type: object
+                x-apifox-orders: []
+                x-apifox-ignore-properties: []
+          description: No Content
+      summary: Delete User
+      tags:
+      - User
+      x-apifox-folder: User
+      x-apifox-status: released
+      x-run-in-apifox: https://apifox.com/web/project/3257993/apis/api-108725183-run
+  /roles/:
+    post:
+      deprecated: false
+      description: ""
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RoleInfo'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/_users__post_200_response'
+          description: OK
+      summary: Create Role
+      tags:
+      - Role
+      x-apifox-folder: Role
+      x-apifox-status: released
+      x-run-in-apifox: https://apifox.com/web/project/3257993/apis/api-108725497-run
+  /roles/{id}:
+    delete:
+      deprecated: false
+      description: ""
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "204":
+          content:
+            application/json:
+              schema:
+                properties: {}
+                type: object
+                x-apifox-ignore-properties: []
+                x-apifox-orders: []
+          description: No Content
+      summary: Delete Role
+      tags:
+      - Role
+      x-apifox-folder: Role
+      x-apifox-status: released
+      x-run-in-apifox: https://apifox.com/web/project/3257993/apis/api-108725521-run
+  /users/{userID}/roles/{roleID}:
+    post:
+      deprecated: false
+      description: ""
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: userID
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ""
+        explode: false
+        in: path
+        name: roleID
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "204":
+          content:
+            application/json:
+              schema:
+                properties: {}
+                type: object
+                x-apifox-ignore-properties: []
+                x-apifox-orders: []
+          description: No Content
+      summary: Add role to user
+      tags:
+      - Auth
+      x-apifox-folder: Auth
+      x-apifox-status: released
+      x-run-in-apifox: https://apifox.com/web/project/3257993/apis/api-108725641-run
+  /auth/login:
+    post:
+      deprecated: false
+      description: ""
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserInfo'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/_auth_login_post_200_response'
+          description: OK
+      summary: Authenticate
+      tags:
+      - Auth
+      x-apifox-folder: Auth
+      x-apifox-status: released
+      x-run-in-apifox: https://apifox.com/web/project/3257993/apis/api-108726087-run
+  /auth/logout:
+    post:
+      deprecated: false
+      description: ""
+      parameters: []
+      responses:
+        "204":
+          content:
+            application/json:
+              schema:
+                properties: {}
+                type: object
+                x-apifox-ignore-properties: []
+                x-apifox-orders: []
+          description: No Content
+      summary: Invalidate
+      tags:
+      - Auth
+      x-apifox-folder: Auth
+      x-apifox-status: released
+      x-run-in-apifox: https://apifox.com/web/project/3257993/apis/api-108726106-run
+  /users/me/roles/{id}:
+    get:
+      deprecated: false
+      description: ""
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "204":
+          content:
+            application/json:
+              schema:
+                properties: {}
+                type: object
+                x-apifox-ignore-properties: []
+                x-apifox-orders: []
+          description: No Content
+      summary: Check Role
+      tags:
+      - Auth
+      x-apifox-folder: Auth
+      x-apifox-status: released
+      x-run-in-apifox: https://apifox.com/web/project/3257993/apis/api-108726959-run
+  /users/me/roles:
+    get:
+      deprecated: false
+      description: ""
+      parameters: []
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/_users_me_roles_get_200_response'
+          description: OK
+      summary: List roles
+      tags:
+      - Auth
+      x-apifox-folder: Auth
+      x-apifox-status: released
+      x-run-in-apifox: https://apifox.com/web/project/3257993/apis/api-108727011-run
+components:
+  schemas:
+    InvalidateTokenRequest:
+      properties:
+        token:
+          type: string
+      required:
+      - token
+      type: object
+      x-apifox-orders:
+      - token
+      x-apifox-ignore-properties: []
+      x-apifox-folder: ""
+    RoleInfo:
+      example:
+        name: name
+        id: id
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+      required:
+      - name
+      type: object
+      x-apifox-orders:
+      - id
+      - name
+      x-apifox-ignore-properties: []
+      x-apifox-folder: ""
+    UserInfo:
+      example:
+        password: password
+        name: name
+      properties:
+        name:
+          type: string
+        password:
+          type: string
+      required:
+      - name
+      - password
+      type: object
+      x-apifox-orders:
+      - name
+      - password
+      x-apifox-ignore-properties: []
+      x-apifox-folder: ""
+    _users__post_200_response:
+      example:
+        id: id
+      properties:
+        id:
+          type: string
+      required:
+      - id
+      type: object
+      x-apifox-orders:
+      - id
+      x-apifox-ignore-properties: []
+    _auth_login_post_200_response:
+      example:
+        token: token
+      properties:
+        token:
+          type: string
+      required:
+      - token
+      type: object
+      x-apifox-orders:
+      - token
+      x-apifox-ignore-properties: []
+    _users_me_roles_get_200_response:
+      example:
+        roles:
+        - name: name
+          id: id
+        - name: name
+          id: id
+      properties:
+        roles:
+          items:
+            $ref: '#/components/schemas/RoleInfo'
+          type: array
+      type: object
+      x-apifox-orders:
+      - roles
+      x-apifox-ignore-properties: []

@@ -6,7 +6,7 @@ require (
 	github.com/brianvoe/gofakeit/v6 v6.23.2
 	github.com/gin-gonic/gin v1.9.1
 	github.com/golang-jwt/jwt/v5 v5.0.0
-	github.com/kovercjm/tool-go v1.1.1-0.20230907174646-87656fcee372
+	github.com/kovercjm/tool-go v1.1.1-0.20230908003615-0cf6e9741522
 	github.com/onsi/ginkgo/v2 v2.12.0
 	github.com/onsi/gomega v1.27.10
 	github.com/pkg/errors v0.9.1

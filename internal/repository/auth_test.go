@@ -105,7 +105,8 @@ var _ = Describe("Repository auth test", func() {
 			Ω(userRoles.Roles[0].ID).Should(Equal(roleID))
 		})
 		It("Should failed", func() {
-			Ω(r.GetUserRoles(nil)).ShouldNot(Succeed())
+			_, err := r.GetUserRoles(nil)
+			Ω(err).ShouldNot(Succeed())
 		})
 	})
 

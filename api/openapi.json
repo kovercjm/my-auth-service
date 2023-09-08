@@ -295,27 +295,6 @@
           "Auth"
         ],
         "parameters": [],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "token": {
-                    "type": "string"
-                  }
-                },
-                "x-apifox-orders": [
-                  "token"
-                ],
-                "required": [
-                  "token"
-                ],
-                "x-apifox-ignore-properties": []
-              }
-            }
-          }
-        },
         "responses": {
           "204": {
             "description": "No Content",
